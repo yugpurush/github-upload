@@ -1,2 +1,2 @@
-web: gunicorn app:server --app
+web: gunicorn -w 4 app:app
 
