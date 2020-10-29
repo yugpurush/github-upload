@@ -5,7 +5,10 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
+    SECRET_KEY = 'Daves Key'
+ 
+#    SECRET_KEY = os.environ['AWS_SECRET_KEY']
+#    SECRET_KEY = 'this-really-needs-to-be-changed'
 
 class ProductionConfig(Config):
     DEBUG = False
