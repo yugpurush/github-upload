@@ -1,13 +1,12 @@
-import os
 from flask import Flask
-import config
+from config import Config
+import os
 
 app = Flask(__name__)
+appSetting = os.environ['CONFIGURATION_SETUP']
+print(appSetting)   #prints None
 
-
-from config import DevelopmentConfig
-app.config.from_object(DevelopmentConfig())
-#app.config.from_object(os.environ['APP_SETTINGS'])  
+app.config.from_object(appSetting)  
 
 @app.route('/')
 def hello():
@@ -17,5 +16,6 @@ def hello():
 def hello_name(name):
     return "Hello {}!".format(name)
 
+#export APP_SETTINGS="config.DevelopmentConfig"
 if __name__ == '__main__':
     app.run()
